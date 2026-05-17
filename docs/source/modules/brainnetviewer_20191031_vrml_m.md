@@ -1,592 +1,1882 @@
 # Module Name: `BrainNetViewer_20191031/vrml.m`
+
+## Description
 - **Module Category:** Bundled BrainNetViewer dependency.
 - **Theoretical Background:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
 - **Key Features:**
-  - VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
+  - VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
   - Internal calls detected: `findobj`
   - External dependencies detected: ANTs command-line suite
 
-## Function: `vrml()`
-- **Signature & Definition:** `function vrml(h, filename, opts)` (line 1)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are not implemented by the viewers. Others are due to features not implemented by vrml.m. In some cases 
-- **Arguments:**
-  - `h` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `filename` (character vector or string scalar filesystem path): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `opts` (numeric time-series matrix, commonly T x R, V x T, or T x R x S): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: ANTs command-line suite
-  - Called By: `BrainNetViewer_20191031/BrainNet.m:4890/NV_m_save_Callback`, `BrainNetViewer_20191031/BrainNet.m:5166/SaveImage_ClickedCallback`
-- **Edge Cases & Exceptions:** Defines defaults or branches for optional arguments or missing files. Uses try/catch; failures are logged, displayed, or returned. Handles NaN, Inf, or finite-value filtering. Checks empty arrays, missing files, or empty user selections. Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+## `vrml()`
 
-## Function: `WriteFileHeaderAndInfo()`
-- **Signature & Definition:** `function WriteFileHeaderAndInfo()` (line 80)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - No explicit input arguments.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Handles NaN, Inf, or finite-value filtering.
+### Syntax
+```matlab
+function vrml(h, filename, opts)
+```
+Defined at source line `1`.
 
-## Function: `ProcessObject()`
-- **Signature & Definition:** `function ProcessObject(obj_handle, opts)` (line 88)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj_handle` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `opts` (numeric time-series matrix, commonly T x R, V x T, or T x R x S): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are not implemented by the viewers. Others are due to features not implemented by vrml.m. In some cases
 
-## Function: `HandleFigure()`
-- **Signature & Definition:** `function HandleFigure(obj,opts)` (line 101)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `opts` (numeric time-series matrix, commonly T x R, V x T, or T x R x S): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Examples
+No runnable examples were extracted during the source-static review for this function.
 
-## Function: `HandleAxes()`
-- **Signature & Definition:** `function HandleAxes(obj_handle, opts)` (line 111)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj_handle` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `opts` (numeric time-series matrix, commonly T x R, V x T, or T x R x S): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: `findobj`
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Checks empty arrays, missing files, or empty user selections.
+### Input Arguments
+#### `h` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
 
-## Function: `HandleLight()`
-- **Signature & Definition:** `function HandleLight(obj)` (line 162)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+#### `filename` — character vector or string scalar filesystem path
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
 
-## Function: `HandleText()`
-- **Signature & Definition:** `function HandleText(obj)` (line 181)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model.
-- **Functional Purpose:** check to see what kind of object we received a real HG object or maybe just a label of the axis.
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+#### `opts` — numeric time-series matrix, commonly T x R, V x T, or T x R x S
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
 
-## Function: `HandlePatch()`
-- **Signature & Definition:** `function HandlePatch(obj_handle,opts)` (line 212)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj_handle` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `opts` (numeric time-series matrix, commonly T x R, V x T, or T x R x S): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
 
-## Function: `HandleSurface()`
-- **Signature & Definition:** `function HandleSurface(obj_handle, opts)` (line 219)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj_handle` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `opts` (numeric time-series matrix, commonly T x R, V x T, or T x R x S): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
 
-## Function: `HandlePatch_SurfaceObjs()`
-- **Signature & Definition:** `function HandlePatch_SurfaceObjs(obj_handle,info,opts)` (line 226)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj_handle` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `info` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `opts` (numeric time-series matrix, commonly T x R, V x T, or T x R x S): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Checks empty arrays, missing files, or empty user selections. Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
 
-## Function: `HandleLine()`
-- **Signature & Definition:** `function HandleLine(obj)` (line 289)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Tips
+Defines defaults or branches for optional arguments or missing files. Uses try/catch; failures are logged, displayed, or returned. Handles NaN, Inf, or finite-value filtering. Checks empty arrays, missing files, or empty user selections. Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
 
-## Function: `HandleImage()`
-- **Signature & Definition:** `function HandleImage(obj)` (line 299)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
 
-## Function: `BeginShape()`
-- **Signature & Definition:** `function BeginShape(type)` (line 326)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `type` (character vector, string scalar, or categorical option): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** ANTs command-line suite
+- **Called By:** `BrainNetViewer_20191031/BrainNet.m:4890/NV_m_save_Callback`, `BrainNetViewer_20191031/BrainNet.m:5166/SaveImage_ClickedCallback`
 
-## Function: `EndShape()`
-- **Signature & Definition:** `function EndShape` (line 334)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - No explicit input arguments.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
 
-## Function: `color()`
-- **Signature & Definition:** `function color(hgObj,fcn,type)` (line 340)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `hgObj` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `fcn` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `type` (character vector, string scalar, or categorical option): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### See Also
+- Related callers: `BrainNetViewer_20191031/BrainNet.m:4890/NV_m_save_Callback`, `BrainNetViewer_20191031/BrainNet.m:5166/SaveImage_ClickedCallback`
 
-## Function: `facecolor()`
-- **Signature & Definition:** `function facecolor(hgObj,fcn,type)` (line 354)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `hgObj` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `fcn` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `type` (character vector, string scalar, or categorical option): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+## `WriteFileHeaderAndInfo()`
 
-## Function: `coord()`
-- **Signature & Definition:** `function coord(hgObj,fcn,name,usage)` (line 367)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `hgObj` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `fcn` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `name` (character vector, string scalar, or categorical option): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `usage` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: `BrainNetViewer_20191031/BrainNet_GenCoord.m:1/BrainNet_GenCoord`, `BrainNetViewer_20191031/BrainNet_LoadFiles.m:559/MF_load`
-- **Edge Cases & Exceptions:** Defines defaults or branches for optional arguments or missing files.
+### Syntax
+```matlab
+function WriteFileHeaderAndInfo()
+```
+Defined at source line `80`.
 
-## Function: `coordIndex()`
-- **Signature & Definition:** `function coordIndex(hgObj,fcn)` (line 386)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `hgObj` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `fcn` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
 
-## Function: `colorIndex()`
-- **Signature & Definition:** `function colorIndex(hgObj,fcn,type)` (line 393)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `hgObj` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `fcn` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `type` (character vector, string scalar, or categorical option): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Examples
+No runnable examples were extracted during the source-static review for this function.
 
-## Function: `texture()`
-- **Signature & Definition:** `function texture(hgObj)` (line 398)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `hgObj` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+### Input Arguments
+- No explicit input arguments.
 
-## Function: `surfColor()`
-- **Signature & Definition:** `function surfColor(obj) %#ok<*DEFNU>` (line 418)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - No explicit input arguments.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
 
-## Function: `patchColor()`
-- **Signature & Definition:** `function patchColor(obj) %#ok<*DEFNU>` (line 425)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - No explicit input arguments.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
 
-## Function: `surfCoordIndex()`
-- **Signature & Definition:** `function surfCoordIndex(obj)` (line 437)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
 
-## Function: `patchCoordIndex()`
-- **Signature & Definition:** `function patchCoordIndex(obj)` (line 446)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Tips
+Handles NaN, Inf, or finite-value filtering.
 
-## Function: `patchColorIndex()`
-- **Signature & Definition:** `function patchColorIndex(obj,type)` (line 453)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model.
-- **Functional Purpose:** n determines index/true coloring
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `type` (character vector, string scalar, or categorical option): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
 
-## Function: `surfColorIndex()`
-- **Signature & Definition:** `function surfColorIndex(obj,type)` (line 473)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `type` (character vector, string scalar, or categorical option): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
 
-## Function: `lineCoord()`
-- **Signature & Definition:** `function lineCoord(obj)` (line 498)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Checks empty arrays, missing files, or empty user selections.
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
 
-## Function: `lineCoordIndex()`
-- **Signature & Definition:** `function lineCoordIndex(obj)` (line 509)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### See Also
+No related internal cross-references were documented in the source-static review.
 
-## Function: `surfCoord()`
-- **Signature & Definition:** `function surfCoord(obj)` (line 516)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+## `ProcessObject()`
 
-## Function: `patchCoord()`
-- **Signature & Definition:** `function patchCoord(obj)` (line 525)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Syntax
+```matlab
+function ProcessObject(obj_handle, opts)
+```
+Defined at source line `88`.
 
-## Function: `axesTickCoord()`
-- **Signature & Definition:** `function axesTickCoord(obj)` (line 532)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model.
-- **Functional Purpose:** XTICK
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
 
-## Function: `axesTickCoordIndex()`
-- **Signature & Definition:** `function axesTickCoordIndex(obj)` (line 557)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Examples
+No runnable examples were extracted during the source-static review for this function.
 
-## Function: `outputAxesCube()`
-- **Signature & Definition:** `function outputAxesCube(obj)` (line 584)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Input Arguments
+#### `obj_handle` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
 
-## Function: `outputAxesTickLabels()`
-- **Signature & Definition:** `function outputAxesTickLabels(obj)` (line 608)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+#### `opts` — numeric time-series matrix, commonly T x R, V x T, or T x R x S
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
 
-## Function: `outputAxesTicks()`
-- **Signature & Definition:** `function outputAxesTicks(obj)` (line 626)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
 
-## Function: `outputColormap()`
-- **Signature & Definition:** `function outputColormap(cmap)` (line 632)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `cmap` (numeric scalar, vector, matrix, or multidimensional array): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
 
-## Function: `colorMapping()`
-- **Signature & Definition:** `function rdata = colorMapping(data, clim, colormap_length, mapping_type)` (line 635)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `data` (numeric scalar, vector, matrix, or multidimensional array): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `clim` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `colormap_length` (numeric scalar, vector, matrix, or multidimensional array): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `mapping_type` (numeric scalar, vector, matrix, or multidimensional array): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - `rdata` (numeric scalar, vector, matrix, or multidimensional array): Output produced by the MATLAB implementation.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
 
-## Function: `sendStr()`
-- **Signature & Definition:** `function sendStr(indent,str)` (line 652)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `indent` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `str` (numeric scalar or numeric vector): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
 
-## Function: `outputOtherViewpoints()`
-- **Signature & Definition:** `function outputOtherViewpoints(obj)` (line 659)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `obj` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
 
-## Function: `computeOrientation()`
-- **Signature & Definition:** `function o = computeOrientation(T)` (line 669)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are 
-- **Arguments:**
-  - `T` (numeric scalar or numeric vector): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - `o` (MATLAB value inferred from source usage): Output produced by the MATLAB implementation.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `HandleFigure()`
+
+### Syntax
+```matlab
+function HandleFigure(obj,opts)
+```
+Defined at source line `101`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `opts` — numeric time-series matrix, commonly T x R, V x T, or T x R x S
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `HandleAxes()`
+
+### Syntax
+```matlab
+function HandleAxes(obj_handle, opts)
+```
+Defined at source line `111`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj_handle` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `opts` — numeric time-series matrix, commonly T x R, V x T, or T x R x S
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+Checks empty arrays, missing files, or empty user selections.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** `findobj`
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+- Related internal calls: `findobj`
+
+## `HandleLight()`
+
+### Syntax
+```matlab
+function HandleLight(obj)
+```
+Defined at source line `162`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `HandleText()`
+
+### Syntax
+```matlab
+function HandleText(obj)
+```
+Defined at source line `181`.
+
+### Description
+check to see what kind of object we received a real HG object or maybe just a label of the axis.
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `HandlePatch()`
+
+### Syntax
+```matlab
+function HandlePatch(obj_handle,opts)
+```
+Defined at source line `212`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj_handle` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `opts` — numeric time-series matrix, commonly T x R, V x T, or T x R x S
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `HandleSurface()`
+
+### Syntax
+```matlab
+function HandleSurface(obj_handle, opts)
+```
+Defined at source line `219`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj_handle` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `opts` — numeric time-series matrix, commonly T x R, V x T, or T x R x S
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `HandlePatch_SurfaceObjs()`
+
+### Syntax
+```matlab
+function HandlePatch_SurfaceObjs(obj_handle,info,opts)
+```
+Defined at source line `226`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj_handle` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `info` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `opts` — numeric time-series matrix, commonly T x R, V x T, or T x R x S
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+Checks empty arrays, missing files, or empty user selections. Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `HandleLine()`
+
+### Syntax
+```matlab
+function HandleLine(obj)
+```
+Defined at source line `289`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `HandleImage()`
+
+### Syntax
+```matlab
+function HandleImage(obj)
+```
+Defined at source line `299`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `BeginShape()`
+
+### Syntax
+```matlab
+function BeginShape(type)
+```
+Defined at source line `326`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `type` — character vector, string scalar, or categorical option
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `EndShape()`
+
+### Syntax
+```matlab
+function EndShape
+```
+Defined at source line `334`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+- No explicit input arguments.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `color()`
+
+### Syntax
+```matlab
+function color(hgObj,fcn,type)
+```
+Defined at source line `340`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `hgObj` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `fcn` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `type` — character vector, string scalar, or categorical option
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `facecolor()`
+
+### Syntax
+```matlab
+function facecolor(hgObj,fcn,type)
+```
+Defined at source line `354`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `hgObj` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `fcn` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `type` — character vector, string scalar, or categorical option
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `coord()`
+
+### Syntax
+```matlab
+function coord(hgObj,fcn,name,usage)
+```
+Defined at source line `367`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `hgObj` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `fcn` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `name` — character vector, string scalar, or categorical option
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `usage` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+Defines defaults or branches for optional arguments or missing files.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** `BrainNetViewer_20191031/BrainNet_GenCoord.m:1/BrainNet_GenCoord`, `BrainNetViewer_20191031/BrainNet_LoadFiles.m:559/MF_load`
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+- Related callers: `BrainNetViewer_20191031/BrainNet_GenCoord.m:1/BrainNet_GenCoord`, `BrainNetViewer_20191031/BrainNet_LoadFiles.m:559/MF_load`
+
+## `coordIndex()`
+
+### Syntax
+```matlab
+function coordIndex(hgObj,fcn)
+```
+Defined at source line `386`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `hgObj` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `fcn` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `colorIndex()`
+
+### Syntax
+```matlab
+function colorIndex(hgObj,fcn,type)
+```
+Defined at source line `393`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `hgObj` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `fcn` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `type` — character vector, string scalar, or categorical option
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `texture()`
+
+### Syntax
+```matlab
+function texture(hgObj)
+```
+Defined at source line `398`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `hgObj` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `surfColor()`
+
+### Syntax
+```matlab
+function surfColor(obj) %#ok<*DEFNU>
+```
+Defined at source line `418`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+- No explicit input arguments.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `patchColor()`
+
+### Syntax
+```matlab
+function patchColor(obj) %#ok<*DEFNU>
+```
+Defined at source line `425`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+- No explicit input arguments.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `surfCoordIndex()`
+
+### Syntax
+```matlab
+function surfCoordIndex(obj)
+```
+Defined at source line `437`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `patchCoordIndex()`
+
+### Syntax
+```matlab
+function patchCoordIndex(obj)
+```
+Defined at source line `446`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `patchColorIndex()`
+
+### Syntax
+```matlab
+function patchColorIndex(obj,type)
+```
+Defined at source line `453`.
+
+### Description
+n determines index/true coloring
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `type` — character vector, string scalar, or categorical option
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model.
+
+### Tips
+Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `surfColorIndex()`
+
+### Syntax
+```matlab
+function surfColorIndex(obj,type)
+```
+Defined at source line `473`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `type` — character vector, string scalar, or categorical option
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `lineCoord()`
+
+### Syntax
+```matlab
+function lineCoord(obj)
+```
+Defined at source line `498`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+Checks empty arrays, missing files, or empty user selections.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `lineCoordIndex()`
+
+### Syntax
+```matlab
+function lineCoordIndex(obj)
+```
+Defined at source line `509`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `surfCoord()`
+
+### Syntax
+```matlab
+function surfCoord(obj)
+```
+Defined at source line `516`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `patchCoord()`
+
+### Syntax
+```matlab
+function patchCoord(obj)
+```
+Defined at source line `525`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `axesTickCoord()`
+
+### Syntax
+```matlab
+function axesTickCoord(obj)
+```
+Defined at source line `532`.
+
+### Description
+XTICK
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `axesTickCoordIndex()`
+
+### Syntax
+```matlab
+function axesTickCoordIndex(obj)
+```
+Defined at source line `557`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `outputAxesCube()`
+
+### Syntax
+```matlab
+function outputAxesCube(obj)
+```
+Defined at source line `584`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `outputAxesTickLabels()`
+
+### Syntax
+```matlab
+function outputAxesTickLabels(obj)
+```
+Defined at source line `608`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `outputAxesTicks()`
+
+### Syntax
+```matlab
+function outputAxesTicks(obj)
+```
+Defined at source line `626`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `outputColormap()`
+
+### Syntax
+```matlab
+function outputColormap(cmap)
+```
+Defined at source line `632`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `cmap` — numeric scalar, vector, matrix, or multidimensional array
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `colorMapping()`
+
+### Syntax
+```matlab
+function rdata = colorMapping(data, clim, colormap_length, mapping_type)
+```
+Defined at source line `635`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `data` — numeric scalar, vector, matrix, or multidimensional array
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `clim` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `colormap_length` — numeric scalar, vector, matrix, or multidimensional array
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `mapping_type` — numeric scalar, vector, matrix, or multidimensional array
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+#### `rdata` — numeric scalar, vector, matrix, or multidimensional array
+Output produced by the MATLAB implementation.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `sendStr()`
+
+### Syntax
+```matlab
+function sendStr(indent,str)
+```
+Defined at source line `652`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `indent` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `str` — numeric scalar or numeric vector
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `outputOtherViewpoints()`
+
+### Syntax
+```matlab
+function outputOtherViewpoints(obj)
+```
+Defined at source line `659`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `obj` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `computeOrientation()`
+
+### Syntax
+```matlab
+function o = computeOrientation(T)
+```
+Defined at source line `669`.
+
+### Description
+VRML Save graphics to VRML 97 file. VRML(H, FILENAME) saves a VRML 97 file containing the object with handle H and its descendants. If the FILENAME does not include an extension, ".wrl" is appended. If a file with the name FILENAME exists, it is overwritten. VRML(H) saves H and its descendants to the file "matlab.wrl". VRML(H, FILENAME, 'noedgelines') saves the object so that any edge lines of Patch objects are not saved in the resulting VRML file. Note that there are rendering differences between MATLAB and the VRML viewers. Some of these differences are due to VRML 97 spec features that are
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `T` — numeric scalar or numeric vector
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+#### `o` — MATLAB value inferred from source usage
+Output produced by the MATLAB implementation.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.

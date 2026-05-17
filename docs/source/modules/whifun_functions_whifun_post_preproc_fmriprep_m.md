@@ -1,4 +1,6 @@
 # Module Name: `whifun_functions/whifun_post_preproc_fmriprep.m`
+
+## Description
 - **Module Category:** WhiFuN first-party MATLAB function.
 - **Theoretical Background:** Linear models use $y=X\beta+\varepsilon$; residualized data are $\hat{\varepsilon}=y-X\hat{\beta}$, with temporal means often added back. Framewise displacement is commonly $FD_t=\sum_{i=1}^{3}|\Delta d_{i,t}|+R\sum_{i=1}^{3}|\Delta\theta_{i,t}|$, with $R=50\,\mathrm{mm}$. Gaussian smoothing uses $G_\sigma(x)=\frac{1}{(2\pi\sigma^2)^{3/2}}e^{-\lVert x\rVert^2/(2\sigma^2)}$ and $\sigma=\mathrm{FWHM}/(2\sqrt{2\ln2})$. Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
 - **Key Features:**
@@ -6,18 +8,54 @@
   - Internal calls detected: `complete_filepath`, `whifun_bids_join`, `whifun_create_file`, `whifun_discard_initial_volume_preproc`, `whifun_fd_preproc`, `whifun_parse_bids_filename`, `whifun_regress_any`, `whifun_select_confound_vars`, `whifun_smooth_preproc`
   - External dependencies detected: MATLAB table/file I/O, SPM12, FSL command-line suite
 
-## Function: `whifun_post_preproc_fmriprep()`
-- **Signature & Definition:** `function Subj_list_1 = whifun_post_preproc_fmriprep(quality_control_path, Subj_list_1, varargin)` (line 1)
-- **Scientific Theory & Formulas:** Linear models use $y=X\beta+\varepsilon$; residualized data are $\hat{\varepsilon}=y-X\hat{\beta}$, with temporal means often added back. Framewise displacement is commonly $FD_t=\sum_{i=1}^{3}|\Delta d_{i,t}|+R\sum_{i=1}^{3}|\Delta\theta_{i,t}|$, with $R=50\,\mathrm{mm}$. Gaussian smoothing uses $G_\sigma(x)=\frac{1}{(2\pi\sigma^2)^{3/2}}e^{-\lVert x\rVert^2/(2\sigma^2)}$ and $\sigma=\mathrm{FWHM}/(2\sqrt{2\ln2})$. Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** WHIFUN_POST_PREPROC_FMRIPREP Post-processing pipeline for fMRIPrep outputs. SUBJ_LIST_1 = WHIFUN_POST_PREPROC_FMRIPREP(QC_PATH, SUBJ_STRUCT, 'Name', Value) takes the outputs of an fMRIPrep pipeline and performs additional processing steps: volume discarding, FD calculation, nuisance regression (using fMRIPrep's confound TSV), and spatial smoothing. INPUTS: quality_control_path - String. Path for logs and QC reports. Subj_list_1 - Struct. Must contain .func_folder, .func_name, .anat_folder, and .anat_name. OPTIONAL PARAMETERS (Name-Value Pairs): 'over_write' - Logical. If true, existing files are re-created. 'n_vol_dis' - Integer. Initial volumes to discard (Default: 0). 'max_fd' - Numeric. F
-- **Arguments:**
-  - `quality_control_path` (character vector or string scalar filesystem path): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `Subj_list_1` (structure array containing participant metadata and paths): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `varargin` (cell array of variable MATLAB arguments): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - `Subj_list_1` (structure array containing participant metadata and paths): Output produced by the MATLAB implementation.
-- **Dependencies:**
-  - Calls: `complete_filepath`, `whifun_bids_join`, `whifun_create_file`, `whifun_discard_initial_volume_preproc`, `whifun_fd_preproc`, `whifun_parse_bids_filename`, `whifun_regress_any`, `whifun_select_confound_vars`, `whifun_smooth_preproc`
-  - External: MATLAB table/file I/O, SPM12, FSL command-line suite
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Uses explicit parameter parsing or validation. Defines defaults or branches for optional arguments or missing files. Handles NaN, Inf, or finite-value filtering. Checks empty arrays, missing files, or empty user selections. Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+## `whifun_post_preproc_fmriprep()`
+
+### Syntax
+```matlab
+function Subj_list_1 = whifun_post_preproc_fmriprep(quality_control_path, Subj_list_1, varargin)
+```
+Defined at source line `1`.
+
+### Description
+WHIFUN_POST_PREPROC_FMRIPREP Post-processing pipeline for fMRIPrep outputs. SUBJ_LIST_1 = WHIFUN_POST_PREPROC_FMRIPREP(QC_PATH, SUBJ_STRUCT, 'Name', Value) takes the outputs of an fMRIPrep pipeline and performs additional processing steps: volume discarding, FD calculation, nuisance regression (using fMRIPrep's confound TSV), and spatial smoothing. INPUTS: quality_control_path - String. Path for logs and QC reports. Subj_list_1 - Struct. Must contain .func_folder, .func_name, .anat_folder, and .anat_name. OPTIONAL PARAMETERS (Name-Value Pairs): 'over_write' - Logical. If true, existing files are re-created. 'n_vol_dis' - Integer. Initial volumes to discard (Default: 0). 'max_fd' - Numeric. F
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `quality_control_path` — character vector or string scalar filesystem path
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `Subj_list_1` — structure array containing participant metadata and paths
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `varargin` — cell array of variable MATLAB arguments
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+#### `Subj_list_1` — structure array containing participant metadata and paths
+Output produced by the MATLAB implementation.
+
+### More About
+Linear models use $y=X\beta+\varepsilon$; residualized data are $\hat{\varepsilon}=y-X\hat{\beta}$, with temporal means often added back. Framewise displacement is commonly $FD_t=\sum_{i=1}^{3}|\Delta d_{i,t}|+R\sum_{i=1}^{3}|\Delta\theta_{i,t}|$, with $R=50\,\mathrm{mm}$. Gaussian smoothing uses $G_\sigma(x)=\frac{1}{(2\pi\sigma^2)^{3/2}}e^{-\lVert x\rVert^2/(2\sigma^2)}$ and $\sigma=\mathrm{FWHM}/(2\sqrt{2\ln2})$. Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+Uses explicit parameter parsing or validation. Defines defaults or branches for optional arguments or missing files. Handles NaN, Inf, or finite-value filtering. Checks empty arrays, missing files, or empty user selections. Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+
+### Algorithms
+Linear models use $y=X\beta+\varepsilon$; residualized data are $\hat{\varepsilon}=y-X\hat{\beta}$, with temporal means often added back. Framewise displacement is commonly $FD_t=\sum_{i=1}^{3}|\Delta d_{i,t}|+R\sum_{i=1}^{3}|\Delta\theta_{i,t}|$, with $R=50\,\mathrm{mm}$. Gaussian smoothing uses $G_\sigma(x)=\frac{1}{(2\pi\sigma^2)^{3/2}}e^{-\lVert x\rVert^2/(2\sigma^2)}$ and $\sigma=\mathrm{FWHM}/(2\sqrt{2\ln2})$. Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** `complete_filepath`, `whifun_bids_join`, `whifun_create_file`, `whifun_discard_initial_volume_preproc`, `whifun_fd_preproc`, `whifun_parse_bids_filename`, `whifun_regress_any`, `whifun_select_confound_vars`, `whifun_smooth_preproc`
+- **External Dependencies:** MATLAB table/file I/O, SPM12, FSL command-line suite
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+- Related internal calls: `complete_filepath`, `whifun_bids_join`, `whifun_create_file`, `whifun_discard_initial_volume_preproc`, `whifun_fd_preproc`, `whifun_parse_bids_filename`, `whifun_regress_any`, `whifun_select_confound_vars`, `whifun_smooth_preproc`

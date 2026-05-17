@@ -1,4 +1,6 @@
 # Module Name: `whifun_functions/whifun_extract_csf_ts.m`
+
+## Description
 - **Module Category:** WhiFuN first-party MATLAB function.
 - **Theoretical Background:** Tissue masks use label or probability thresholding. Group consensus includes voxel $v$ when $S^{-1}\sum_s I_s(v)\ge\tau$. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
 - **Key Features:**
@@ -6,19 +8,56 @@
   - Internal calls detected: No internal WhiFuN calls detected.
   - External dependencies detected: MATLAB NIfTI I/O, MATLAB table/file I/O, Statistics and Machine Learning Toolbox, SPM12
 
-## Function: `whifun_extract_csf_ts()`
-- **Signature & Definition:** `function whifun_extract_csf_ts(in_csf_mask_func_path,now_func_path,pca_for_temp_reg,n_pca)` (line 1)
-- **Scientific Theory & Formulas:** Tissue masks use label or probability thresholding. Group consensus includes voxel $v$ when $S^{-1}\sum_s I_s(v)\ge\tau$. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
-- **Functional Purpose:** WHIFUN_EXTRACT_CSF_TS Extracts the CSF time series from a functional scan. WHIFUN_EXTRACT_CSF_TS(in_csf_mask_func_path, now_func_path, pca_for_temp_reg, n_pca) extracts the time series of all voxels within a Cerebrospinal Fluid (CSF) mask from a functional neuroimaging data file. The function first reads the binary CSF mask and the functional data. It then reshapes both to a voxel x time points matrix to efficiently extract all the CSF time series. The function handles two methods for summarizing the time series: 1. **Principal Component Analysis (PCA)**: If `pca_for_temp_reg` is true, the function performs PCA on the CSF time series and saves the first `n_pca` principal components. This is 
-- **Arguments:**
-  - `in_csf_mask_func_path` (character vector or string scalar filesystem path): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `now_func_path` (character vector or string scalar filesystem path): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `pca_for_temp_reg` (logical or numeric flag): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `n_pca` (numeric scalar or numeric vector): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: MATLAB NIfTI I/O, MATLAB table/file I/O, Statistics and Machine Learning Toolbox, SPM12
-  - Called By: `whifun_functions/whifun_extract_csf_ts_preproc.m:1/whifun_extract_csf_ts_preproc`
-- **Edge Cases & Exceptions:** Handles NaN, Inf, or finite-value filtering. Checks empty arrays, missing files, or empty user selections. Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+## `whifun_extract_csf_ts()`
+
+### Syntax
+```matlab
+function whifun_extract_csf_ts(in_csf_mask_func_path,now_func_path,pca_for_temp_reg,n_pca)
+```
+Defined at source line `1`.
+
+### Description
+WHIFUN_EXTRACT_CSF_TS Extracts the CSF time series from a functional scan. WHIFUN_EXTRACT_CSF_TS(in_csf_mask_func_path, now_func_path, pca_for_temp_reg, n_pca) extracts the time series of all voxels within a Cerebrospinal Fluid (CSF) mask from a functional neuroimaging data file. The function first reads the binary CSF mask and the functional data. It then reshapes both to a voxel x time points matrix to efficiently extract all the CSF time series. The function handles two methods for summarizing the time series: 1. **Principal Component Analysis (PCA)**: If `pca_for_temp_reg` is true, the function performs PCA on the CSF time series and saves the first `n_pca` principal components. This is
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `in_csf_mask_func_path` — character vector or string scalar filesystem path
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `now_func_path` — character vector or string scalar filesystem path
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `pca_for_temp_reg` — logical or numeric flag
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `n_pca` — numeric scalar or numeric vector
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Tissue masks use label or probability thresholding. Group consensus includes voxel $v$ when $S^{-1}\sum_s I_s(v)\ge\tau$. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Tips
+Handles NaN, Inf, or finite-value filtering. Checks empty arrays, missing files, or empty user selections. Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+
+### Algorithms
+Tissue masks use label or probability thresholding. Group consensus includes voxel $v$ when $S^{-1}\sum_s I_s(v)\ge\tau$. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** MATLAB NIfTI I/O, MATLAB table/file I/O, Statistics and Machine Learning Toolbox, SPM12
+- **Called By:** `whifun_functions/whifun_extract_csf_ts_preproc.m:1/whifun_extract_csf_ts_preproc`
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+- Related callers: `whifun_functions/whifun_extract_csf_ts_preproc.m:1/whifun_extract_csf_ts_preproc`

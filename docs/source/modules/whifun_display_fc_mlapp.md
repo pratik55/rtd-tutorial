@@ -1,4 +1,6 @@
 # Module Name: `whifun_display_FC.mlapp`
+
+## Description
 - **Module Category:** App Designer GUI module.
 - **Theoretical Background:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
 - **Key Features:**
@@ -6,745 +8,2385 @@
   - Internal calls detected: `uigetfile_n_dir`
   - External dependencies detected: MATLAB App Designer, MATLAB table/file I/O, Statistics and Machine Learning Toolbox, Image Processing Toolbox, ANTs command-line suite, BrainNet Viewer
 
-## Function: `whifun_display_FC()`
-- **Signature & Definition:** `classdef whifun_display_FC < matlab.apps.AppBase` (line 1)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - No explicit input arguments.
-- **Returns:**
-  - `whifun_display_FC` (MATLAB App or class type): Class definition used to instantiate the module.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: MATLAB App Designer, ANTs command-line suite
-  - Called By: `main.mlapp:1192/DisplayFCButtonPushed`
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+## `whifun_display_FC()`
 
-## Function: `load_sub_dropdown()`
-- **Signature & Definition:** `function load_sub_dropdown(app,Subj_list)` (line 88)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `Subj_list` (structure array containing participant metadata and paths): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: ANTs command-line suite
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Syntax
+```matlab
+classdef whifun_display_FC < matlab.apps.AppBase
+```
+Defined at source line `1`.
 
-## Function: `initialise_freq_buttons()`
-- **Signature & Definition:** `function initialise_freq_buttons(app,current_band)` (line 101)
-- **Scientific Theory & Formulas:** Band-pass filtering uses Butterworth IIR coefficients; forward-backward `filtfilt` cancels phase delay and squares the magnitude response. Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `current_band` (character vector, string scalar, or categorical option): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Description
+Properties that correspond to app components
 
-## Function: `WMFC()`
-- **Signature & Definition:** `function WMFC(app,final_result,Subj_list)` (line 195)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `final_result` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `Subj_list` (structure array containing participant metadata and paths): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: MATLAB App Designer, Statistics and Machine Learning Toolbox, Image Processing Toolbox, BrainNet Viewer
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Examples
+No runnable examples were extracted during the source-static review for this function.
 
-## Function: `WM_CC_FC()`
-- **Signature & Definition:** `function WM_CC_FC(app,final_result,final_result_ccn,Subj_list)` (line 352)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `final_result` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `final_result_ccn` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `Subj_list` (structure array containing participant metadata and paths): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: MATLAB App Designer, Statistics and Machine Learning Toolbox, Image Processing Toolbox, BrainNet Viewer
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Input Arguments
+- No explicit input arguments.
 
-## Function: `WM_GM_FC()`
-- **Signature & Definition:** `function WM_GM_FC(app,final_result,final_result_gm,Subj_list_wm,Subj_list_gm)` (line 517)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `final_result` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `final_result_gm` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `Subj_list_wm` (structure array containing participant metadata and paths): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `Subj_list_gm` (structure array containing participant metadata and paths): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: MATLAB App Designer, Statistics and Machine Learning Toolbox, Image Processing Toolbox, ANTs command-line suite, BrainNet Viewer
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
 
-## Function: `Atlas_FC()`
-- **Signature & Definition:** `function Atlas_FC(app,reg_ts,Subj_list)` (line 680)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `reg_ts` (numeric time-series matrix, commonly T x R, V x T, or T x R x S): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `Subj_list` (structure array containing participant metadata and paths): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: MATLAB App Designer, Statistics and Machine Learning Toolbox
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Output Arguments
+#### `whifun_display_FC` — MATLAB App or class type
+Class definition used to instantiate the module.
 
-## Function: `substruc2string()`
-- **Signature & Definition:** `function sub_string = substruc2string(~,Subj_list)` (line 794)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `~` (unused placeholder): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `Subj_list` (structure array containing participant metadata and paths): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - `sub_string` (numeric scalar or numeric vector): Output produced by the MATLAB implementation.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Checks empty arrays, missing files, or empty user selections.
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
 
-## Function: `subset_group()`
-- **Signature & Definition:** `function subset_group(app)` (line 804)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: ANTs command-line suite
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Checks empty arrays, missing files, or empty user selections.
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
 
-## Function: `load_in_cell_wm()`
-- **Signature & Definition:** `function out = load_in_cell_wm(~,path_,freq)` (line 830)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `~` (unused placeholder): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `path_` (character vector or string scalar filesystem path): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `freq` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - `out` (MATLAB value inferred from source usage): Output produced by the MATLAB implementation.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: MATLAB table/file I/O
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Defines defaults or branches for optional arguments or missing files.
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
 
-## Function: `load_in_cell_cc()`
-- **Signature & Definition:** `function out = load_in_cell_cc(~,path_,freq)` (line 859)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `~` (unused placeholder): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `path_` (character vector or string scalar filesystem path): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `freq` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - `out` (MATLAB value inferred from source usage): Output produced by the MATLAB implementation.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: MATLAB table/file I/O
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Defines defaults or branches for optional arguments or missing files.
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** MATLAB App Designer, ANTs command-line suite
+- **Called By:** `main.mlapp:1192/DisplayFCButtonPushed`
 
-## Function: `load_in_cell_atlas()`
-- **Signature & Definition:** `function out = load_in_cell_atlas(~,path_,freq)` (line 887)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `~` (unused placeholder): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `path_` (character vector or string scalar filesystem path): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `freq` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - `out` (MATLAB value inferred from source usage): Output produced by the MATLAB implementation.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: MATLAB table/file I/O
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Defines defaults or branches for optional arguments or missing files.
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
 
-## Function: `load_in_cell_gm()`
-- **Signature & Definition:** `function out = load_in_cell_gm(~,path_,freq)` (line 916)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `~` (unused placeholder): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `path_` (character vector or string scalar filesystem path): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `freq` (MATLAB value inferred from source usage): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - `out` (MATLAB value inferred from source usage): Output produced by the MATLAB implementation.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: MATLAB table/file I/O
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Defines defaults or branches for optional arguments or missing files.
+### See Also
+- Related callers: `main.mlapp:1192/DisplayFCButtonPushed`
 
-## Function: `get_atlas_regts()`
-- **Signature & Definition:** `function get_atlas_regts(app,Atlas_reg_files)` (line 945)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `Atlas_reg_files` (character vector or string scalar filesystem path): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Checks empty arrays, missing files, or empty user selections. Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+## `load_sub_dropdown()`
 
-## Function: `load_in_cell_freq()`
-- **Signature & Definition:** `function out = load_in_cell_freq(~,path_)` (line 979)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `~` (unused placeholder): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `path_` (character vector or string scalar filesystem path): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - `out` (MATLAB value inferred from source usage): Output produced by the MATLAB implementation.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: MATLAB table/file I/O
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Syntax
+```matlab
+function load_sub_dropdown(app,Subj_list)
+```
+Defined at source line `88`.
 
-## Function: `startupFcn()`
-- **Signature & Definition:** `function startupFcn(app, caller, path, data_path)` (line 1004)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `caller` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `path` (character vector or string scalar filesystem path): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `data_path` (character vector or string scalar filesystem path): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: ANTs command-line suite
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Description
+Properties that correspond to app components
 
-## Function: `WMFCButton_2Pushed()`
-- **Signature & Definition:** `function WMFCButton_2Pushed(app, event)` (line 1116)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Examples
+No runnable examples were extracted during the source-static review for this function.
 
-## Function: `WMCCFCButton_2Pushed()`
-- **Signature & Definition:** `function WMCCFCButton_2Pushed(app, event)` (line 1127)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
 
-## Function: `WMGMFCButton_2Pushed()`
-- **Signature & Definition:** `function WMGMFCButton_2Pushed(app, event)` (line 1143)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+#### `Subj_list` — structure array containing participant metadata and paths
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
 
-## Function: `AtlasFCButton_2Pushed()`
-- **Signature & Definition:** `function AtlasFCButton_2Pushed(app, event)` (line 1160)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
 
-## Function: `AtlasfileSelectDropDownValueChanged()`
-- **Signature & Definition:** `function AtlasfileSelectDropDownValueChanged(app, event)` (line 1173)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
 
-## Function: `GMfileSelectDropDownValueChanged()`
-- **Signature & Definition:** `function GMfileSelectDropDownValueChanged(app, event)` (line 1178)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
 
-## Function: `WMfileSelectDropDownValueChanged()`
-- **Signature & Definition:** `function WMfileSelectDropDownValueChanged(app, event)` (line 1183)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
 
-## Function: `AllfrequenciesTabButtonDown()`
-- **Signature & Definition:** `function AllfrequenciesTabButtonDown(app, event)` (line 1198)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
 
-## Function: `FrequencyBandsTabButtonDown()`
-- **Signature & Definition:** `function FrequencyBandsTabButtonDown(app, event)` (line 1277)
-- **Scientific Theory & Formulas:** Band-pass filtering uses Butterworth IIR coefficients; forward-backward `filtfilt` cancels phase delay and squares the magnitude response. Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: MATLAB table/file I/O
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Checks empty arrays, missing files, or empty user selections.
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** ANTs command-line suite
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
 
-## Function: `Band_selectDropDownValueChanged()`
-- **Signature & Definition:** `function Band_selectDropDownValueChanged(app, event)` (line 1351)
-- **Scientific Theory & Formulas:** Band-pass filtering uses Butterworth IIR coefficients; forward-backward `filtfilt` cancels phase delay and squares the magnitude response. Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
 
-## Function: `WMFCButtonPushed()`
-- **Signature & Definition:** `function WMFCButtonPushed(app, event)` (line 1385)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### See Also
+No related internal cross-references were documented in the source-static review.
 
-## Function: `WMCCFCButtonPushed()`
-- **Signature & Definition:** `function WMCCFCButtonPushed(app, event)` (line 1398)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+## `initialise_freq_buttons()`
 
-## Function: `WMGMFCButtonPushed()`
-- **Signature & Definition:** `function WMGMFCButtonPushed(app, event)` (line 1429)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Syntax
+```matlab
+function initialise_freq_buttons(app,current_band)
+```
+Defined at source line `101`.
 
-## Function: `AtlasFCButtonPushed()`
-- **Signature & Definition:** `function AtlasFCButtonPushed(app, event)` (line 1460)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Description
+Properties that correspond to app components
 
-## Function: `DataTipsCheckBoxValueChanged()`
-- **Signature & Definition:** `function DataTipsCheckBoxValueChanged(app, event)` (line 1474)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Examples
+No runnable examples were extracted during the source-static review for this function.
 
-## Function: `DivideingroupsCheckBoxValueChanged()`
-- **Signature & Definition:** `function DivideingroupsCheckBoxValueChanged(app, event)` (line 1488)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: ANTs command-line suite
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
 
-## Function: `UploadCSVforParticipantGroupsButtonPushed()`
-- **Signature & Definition:** `function UploadCSVforParticipantGroupsButtonPushed(app, event)` (line 1522)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: ANTs command-line suite
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Uses try/catch; failures are logged, displayed, or returned. Checks empty arrays, missing files, or empty user selections.
+#### `current_band` — character vector, string scalar, or categorical option
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
 
-## Function: `Group1ParticipantsSelectButtonPushed()`
-- **Signature & Definition:** `function Group1ParticipantsSelectButtonPushed(app, event)` (line 1584)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: `uigetfile_n_dir`
-  - External: ANTs command-line suite
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Uses try/catch; failures are logged, displayed, or returned. Checks empty arrays, missing files, or empty user selections. May pause for interactive user input, which affects batch reproducibility.
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
 
-## Function: `Group2ParticipantsSelectButtonPushed()`
-- **Signature & Definition:** `function Group2ParticipantsSelectButtonPushed(app, event)` (line 1624)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: `uigetfile_n_dir`
-  - External: ANTs command-line suite
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Uses try/catch; failures are logged, displayed, or returned. Checks empty arrays, missing files, or empty user selections. May pause for interactive user input, which affects batch reproducibility.
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
 
-## Function: `Group1NameEditFieldValueChanged()`
-- **Signature & Definition:** `function Group1NameEditFieldValueChanged(app, event)` (line 1659)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: ANTs command-line suite
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### More About
+Band-pass filtering uses Butterworth IIR coefficients; forward-backward `filtfilt` cancels phase delay and squares the magnitude response. Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
 
-## Function: `Group2NameEditFieldValueChanged()`
-- **Signature & Definition:** `function Group2NameEditFieldValueChanged(app, event)` (line 1665)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: ANTs command-line suite
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
 
-## Function: `ParticipantlistDropDownClicked()`
-- **Signature & Definition:** `function ParticipantlistDropDownClicked(app, event)` (line 1671)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Handles NaN, Inf, or finite-value filtering. Checks empty arrays, missing files, or empty user selections.
+### Algorithms
+Band-pass filtering uses Butterworth IIR coefficients; forward-backward `filtfilt` cancels phase delay and squares the magnitude response. Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
 
-## Function: `SubjectlistDropDown_2Clicked()`
-- **Signature & Definition:** `function SubjectlistDropDown_2Clicked(app, event)` (line 1711)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Handles NaN, Inf, or finite-value filtering. Checks empty arrays, missing files, or empty user selections.
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
 
-## Function: `SubjectlistDropDown_3Clicked()`
-- **Signature & Definition:** `function SubjectlistDropDown_3Clicked(app, event)` (line 1751)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Handles NaN, Inf, or finite-value filtering. Checks empty arrays, missing files, or empty user selections.
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
 
-## Function: `SaveplotasimageButtonPushed()`
-- **Signature & Definition:** `function SaveplotasimageButtonPushed(app, event)` (line 1791)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** Uses try/catch; failures are logged, displayed, or returned. Checks empty arrays, missing files, or empty user selections.
+### See Also
+No related internal cross-references were documented in the source-static review.
 
-## Function: `CCfileSelectDropDownValueChanged()`
-- **Signature & Definition:** `function CCfileSelectDropDownValueChanged(app, event)` (line 1819)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** value = app.CCfileSelectDropDown.Value;
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+## `WMFC()`
 
-## Function: `WMfileSelectDropDown_2ValueChanged()`
-- **Signature & Definition:** `function WMfileSelectDropDown_2ValueChanged(app, event)` (line 1825)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Syntax
+```matlab
+function WMFC(app,final_result,Subj_list)
+```
+Defined at source line `195`.
 
-## Function: `CCfileSelectDropDown_2ValueChanged()`
-- **Signature & Definition:** `function CCfileSelectDropDown_2ValueChanged(app, event)` (line 1840)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Description
+Properties that correspond to app components
 
-## Function: `GMfileSelectDropDown_2ValueChanged()`
-- **Signature & Definition:** `function GMfileSelectDropDown_2ValueChanged(app, event)` (line 1846)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Examples
+No runnable examples were extracted during the source-static review for this function.
 
-## Function: `AtlasfileSelectDropDown_2ValueChanged()`
-- **Signature & Definition:** `function AtlasfileSelectDropDown_2ValueChanged(app, event)` (line 1862)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Properties that correspond to app components
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-  - `event` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
 
-## Function: `createComponents()`
-- **Signature & Definition:** `function createComponents(app)` (line 1872)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Get the file path for locating images
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: ANTs command-line suite
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+#### `final_result` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
 
-## Function: `whifun_display_FC()`
-- **Signature & Definition:** `function app = whifun_display_FC(varargin)` (line 2291)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Create UIFigure and components
-- **Arguments:**
-  - `varargin` (cell array of variable MATLAB arguments): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - `app` (MATLAB App/UI object or callback handle): Output produced by the MATLAB implementation.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: `main.mlapp:1192/DisplayFCButtonPushed`
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+#### `Subj_list` — structure array containing participant metadata and paths
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
 
-## Function: `delete()`
-- **Signature & Definition:** `function delete(app)` (line 2308)
-- **Scientific Theory & Formulas:** Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
-- **Functional Purpose:** Delete UIFigure when app is deleted
-- **Arguments:**
-  - `app` (MATLAB App/UI object or callback handle): Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
-- **Returns:**
-  - No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
-- **Dependencies:**
-  - Calls: No internal WhiFuN calls detected in this function body.
-  - External: No major external dependency pattern detected beyond MATLAB base language.
-  - Called By: No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
-- **Edge Cases & Exceptions:** No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** MATLAB App Designer, Statistics and Machine Learning Toolbox, Image Processing Toolbox, BrainNet Viewer
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `WM_CC_FC()`
+
+### Syntax
+```matlab
+function WM_CC_FC(app,final_result,final_result_ccn,Subj_list)
+```
+Defined at source line `352`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `final_result` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `final_result_ccn` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `Subj_list` — structure array containing participant metadata and paths
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** MATLAB App Designer, Statistics and Machine Learning Toolbox, Image Processing Toolbox, BrainNet Viewer
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `WM_GM_FC()`
+
+### Syntax
+```matlab
+function WM_GM_FC(app,final_result,final_result_gm,Subj_list_wm,Subj_list_gm)
+```
+Defined at source line `517`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `final_result` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `final_result_gm` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `Subj_list_wm` — structure array containing participant metadata and paths
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `Subj_list_gm` — structure array containing participant metadata and paths
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** MATLAB App Designer, Statistics and Machine Learning Toolbox, Image Processing Toolbox, ANTs command-line suite, BrainNet Viewer
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `Atlas_FC()`
+
+### Syntax
+```matlab
+function Atlas_FC(app,reg_ts,Subj_list)
+```
+Defined at source line `680`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `reg_ts` — numeric time-series matrix, commonly T x R, V x T, or T x R x S
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `Subj_list` — structure array containing participant metadata and paths
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** MATLAB App Designer, Statistics and Machine Learning Toolbox
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `substruc2string()`
+
+### Syntax
+```matlab
+function sub_string = substruc2string(~,Subj_list)
+```
+Defined at source line `794`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `~` — unused placeholder
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `Subj_list` — structure array containing participant metadata and paths
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+#### `sub_string` — numeric scalar or numeric vector
+Output produced by the MATLAB implementation.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+Checks empty arrays, missing files, or empty user selections.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `subset_group()`
+
+### Syntax
+```matlab
+function subset_group(app)
+```
+Defined at source line `804`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+Checks empty arrays, missing files, or empty user selections.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** ANTs command-line suite
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `load_in_cell_wm()`
+
+### Syntax
+```matlab
+function out = load_in_cell_wm(~,path_,freq)
+```
+Defined at source line `830`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `~` — unused placeholder
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `path_` — character vector or string scalar filesystem path
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `freq` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+#### `out` — MATLAB value inferred from source usage
+Output produced by the MATLAB implementation.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+Defines defaults or branches for optional arguments or missing files.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** MATLAB table/file I/O
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `load_in_cell_cc()`
+
+### Syntax
+```matlab
+function out = load_in_cell_cc(~,path_,freq)
+```
+Defined at source line `859`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `~` — unused placeholder
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `path_` — character vector or string scalar filesystem path
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `freq` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+#### `out` — MATLAB value inferred from source usage
+Output produced by the MATLAB implementation.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+Defines defaults or branches for optional arguments or missing files.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** MATLAB table/file I/O
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `load_in_cell_atlas()`
+
+### Syntax
+```matlab
+function out = load_in_cell_atlas(~,path_,freq)
+```
+Defined at source line `887`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `~` — unused placeholder
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `path_` — character vector or string scalar filesystem path
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `freq` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+#### `out` — MATLAB value inferred from source usage
+Output produced by the MATLAB implementation.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+Defines defaults or branches for optional arguments or missing files.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** MATLAB table/file I/O
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `load_in_cell_gm()`
+
+### Syntax
+```matlab
+function out = load_in_cell_gm(~,path_,freq)
+```
+Defined at source line `916`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `~` — unused placeholder
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `path_` — character vector or string scalar filesystem path
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `freq` — MATLAB value inferred from source usage
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+#### `out` — MATLAB value inferred from source usage
+Output produced by the MATLAB implementation.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+Defines defaults or branches for optional arguments or missing files.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** MATLAB table/file I/O
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `get_atlas_regts()`
+
+### Syntax
+```matlab
+function get_atlas_regts(app,Atlas_reg_files)
+```
+Defined at source line `945`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `Atlas_reg_files` — character vector or string scalar filesystem path
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+Checks empty arrays, missing files, or empty user selections. Raises MATLAB errors for invalid dimensions, missing files, invalid parameters, or failed commands.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `load_in_cell_freq()`
+
+### Syntax
+```matlab
+function out = load_in_cell_freq(~,path_)
+```
+Defined at source line `979`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `~` — unused placeholder
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `path_` — character vector or string scalar filesystem path
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+#### `out` — MATLAB value inferred from source usage
+Output produced by the MATLAB implementation.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** MATLAB table/file I/O
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `startupFcn()`
+
+### Syntax
+```matlab
+function startupFcn(app, caller, path, data_path)
+```
+Defined at source line `1004`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `caller` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `path` — character vector or string scalar filesystem path
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `data_path` — character vector or string scalar filesystem path
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** ANTs command-line suite
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `WMFCButton_2Pushed()`
+
+### Syntax
+```matlab
+function WMFCButton_2Pushed(app, event)
+```
+Defined at source line `1116`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `WMCCFCButton_2Pushed()`
+
+### Syntax
+```matlab
+function WMCCFCButton_2Pushed(app, event)
+```
+Defined at source line `1127`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `WMGMFCButton_2Pushed()`
+
+### Syntax
+```matlab
+function WMGMFCButton_2Pushed(app, event)
+```
+Defined at source line `1143`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `AtlasFCButton_2Pushed()`
+
+### Syntax
+```matlab
+function AtlasFCButton_2Pushed(app, event)
+```
+Defined at source line `1160`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `AtlasfileSelectDropDownValueChanged()`
+
+### Syntax
+```matlab
+function AtlasfileSelectDropDownValueChanged(app, event)
+```
+Defined at source line `1173`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `GMfileSelectDropDownValueChanged()`
+
+### Syntax
+```matlab
+function GMfileSelectDropDownValueChanged(app, event)
+```
+Defined at source line `1178`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `WMfileSelectDropDownValueChanged()`
+
+### Syntax
+```matlab
+function WMfileSelectDropDownValueChanged(app, event)
+```
+Defined at source line `1183`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `AllfrequenciesTabButtonDown()`
+
+### Syntax
+```matlab
+function AllfrequenciesTabButtonDown(app, event)
+```
+Defined at source line `1198`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `FrequencyBandsTabButtonDown()`
+
+### Syntax
+```matlab
+function FrequencyBandsTabButtonDown(app, event)
+```
+Defined at source line `1277`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Band-pass filtering uses Butterworth IIR coefficients; forward-backward `filtfilt` cancels phase delay and squares the magnitude response. Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+Checks empty arrays, missing files, or empty user selections.
+
+### Algorithms
+Band-pass filtering uses Butterworth IIR coefficients; forward-backward `filtfilt` cancels phase delay and squares the magnitude response. Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** MATLAB table/file I/O
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `Band_selectDropDownValueChanged()`
+
+### Syntax
+```matlab
+function Band_selectDropDownValueChanged(app, event)
+```
+Defined at source line `1351`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Band-pass filtering uses Butterworth IIR coefficients; forward-backward `filtfilt` cancels phase delay and squares the magnitude response. Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Band-pass filtering uses Butterworth IIR coefficients; forward-backward `filtfilt` cancels phase delay and squares the magnitude response. Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `WMFCButtonPushed()`
+
+### Syntax
+```matlab
+function WMFCButtonPushed(app, event)
+```
+Defined at source line `1385`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `WMCCFCButtonPushed()`
+
+### Syntax
+```matlab
+function WMCCFCButtonPushed(app, event)
+```
+Defined at source line `1398`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `WMGMFCButtonPushed()`
+
+### Syntax
+```matlab
+function WMGMFCButtonPushed(app, event)
+```
+Defined at source line `1429`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `AtlasFCButtonPushed()`
+
+### Syntax
+```matlab
+function AtlasFCButtonPushed(app, event)
+```
+Defined at source line `1460`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `DataTipsCheckBoxValueChanged()`
+
+### Syntax
+```matlab
+function DataTipsCheckBoxValueChanged(app, event)
+```
+Defined at source line `1474`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `DivideingroupsCheckBoxValueChanged()`
+
+### Syntax
+```matlab
+function DivideingroupsCheckBoxValueChanged(app, event)
+```
+Defined at source line `1488`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** ANTs command-line suite
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `UploadCSVforParticipantGroupsButtonPushed()`
+
+### Syntax
+```matlab
+function UploadCSVforParticipantGroupsButtonPushed(app, event)
+```
+Defined at source line `1522`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+Uses try/catch; failures are logged, displayed, or returned. Checks empty arrays, missing files, or empty user selections.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** ANTs command-line suite
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `Group1ParticipantsSelectButtonPushed()`
+
+### Syntax
+```matlab
+function Group1ParticipantsSelectButtonPushed(app, event)
+```
+Defined at source line `1584`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+Uses try/catch; failures are logged, displayed, or returned. Checks empty arrays, missing files, or empty user selections. May pause for interactive user input, which affects batch reproducibility.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** `uigetfile_n_dir`
+- **External Dependencies:** ANTs command-line suite
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+- Related internal calls: `uigetfile_n_dir`
+
+## `Group2ParticipantsSelectButtonPushed()`
+
+### Syntax
+```matlab
+function Group2ParticipantsSelectButtonPushed(app, event)
+```
+Defined at source line `1624`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+Uses try/catch; failures are logged, displayed, or returned. Checks empty arrays, missing files, or empty user selections. May pause for interactive user input, which affects batch reproducibility.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** `uigetfile_n_dir`
+- **External Dependencies:** ANTs command-line suite
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+- Related internal calls: `uigetfile_n_dir`
+
+## `Group1NameEditFieldValueChanged()`
+
+### Syntax
+```matlab
+function Group1NameEditFieldValueChanged(app, event)
+```
+Defined at source line `1659`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** ANTs command-line suite
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `Group2NameEditFieldValueChanged()`
+
+### Syntax
+```matlab
+function Group2NameEditFieldValueChanged(app, event)
+```
+Defined at source line `1665`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** ANTs command-line suite
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `ParticipantlistDropDownClicked()`
+
+### Syntax
+```matlab
+function ParticipantlistDropDownClicked(app, event)
+```
+Defined at source line `1671`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+Handles NaN, Inf, or finite-value filtering. Checks empty arrays, missing files, or empty user selections.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `SubjectlistDropDown_2Clicked()`
+
+### Syntax
+```matlab
+function SubjectlistDropDown_2Clicked(app, event)
+```
+Defined at source line `1711`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+Handles NaN, Inf, or finite-value filtering. Checks empty arrays, missing files, or empty user selections.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `SubjectlistDropDown_3Clicked()`
+
+### Syntax
+```matlab
+function SubjectlistDropDown_3Clicked(app, event)
+```
+Defined at source line `1751`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+Handles NaN, Inf, or finite-value filtering. Checks empty arrays, missing files, or empty user selections.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `SaveplotasimageButtonPushed()`
+
+### Syntax
+```matlab
+function SaveplotasimageButtonPushed(app, event)
+```
+Defined at source line `1791`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+Uses try/catch; failures are logged, displayed, or returned. Checks empty arrays, missing files, or empty user selections.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `CCfileSelectDropDownValueChanged()`
+
+### Syntax
+```matlab
+function CCfileSelectDropDownValueChanged(app, event)
+```
+Defined at source line `1819`.
+
+### Description
+value = app.CCfileSelectDropDown.Value;
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `WMfileSelectDropDown_2ValueChanged()`
+
+### Syntax
+```matlab
+function WMfileSelectDropDown_2ValueChanged(app, event)
+```
+Defined at source line `1825`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `CCfileSelectDropDown_2ValueChanged()`
+
+### Syntax
+```matlab
+function CCfileSelectDropDown_2ValueChanged(app, event)
+```
+Defined at source line `1840`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `GMfileSelectDropDown_2ValueChanged()`
+
+### Syntax
+```matlab
+function GMfileSelectDropDown_2ValueChanged(app, event)
+```
+Defined at source line `1846`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `AtlasfileSelectDropDown_2ValueChanged()`
+
+### Syntax
+```matlab
+function AtlasfileSelectDropDown_2ValueChanged(app, event)
+```
+Defined at source line `1862`.
+
+### Description
+Properties that correspond to app components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+#### `event` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `createComponents()`
+
+### Syntax
+```matlab
+function createComponents(app)
+```
+Defined at source line `1872`.
+
+### Description
+Get the file path for locating images
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. Data-management code preserves participant provenance, BIDS/custom path mapping, and reproducible bookkeeping. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** ANTs command-line suite
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.
+
+## `whifun_display_FC()`
+
+### Syntax
+```matlab
+function app = whifun_display_FC(varargin)
+```
+Defined at source line `2291`.
+
+### Description
+Create UIFigure and components
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `varargin` — cell array of variable MATLAB arguments
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Output produced by the MATLAB implementation.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** `main.mlapp:1192/DisplayFCButtonPushed`
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+- Related callers: `main.mlapp:1192/DisplayFCButtonPushed`
+
+## `delete()`
+
+### Syntax
+```matlab
+function delete(app)
+```
+Defined at source line `2308`.
+
+### Description
+Delete UIFigure when app is deleted
+
+### Examples
+No runnable examples were extracted during the source-static review for this function.
+
+### Input Arguments
+#### `app` — MATLAB App/UI object or callback handle
+Inferred from the signature, variable name, and source usage; precise validation occurs at MATLAB runtime.
+
+### Name-Value Arguments
+No explicit name-value arguments were documented in the source-static review for this function.
+
+### Output Arguments
+- No explicit return variable; outputs are files, figures, GUI state, console text, or modified structures.
+
+### More About
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Tips
+No explicit defensive branch was detected; incompatible inputs will fail through MATLAB runtime behavior.
+
+### Algorithms
+Visualization modules use slice sampling, overlays, contours, colormaps, and surface or graph rendering without adding a separate inferential model. App Designer methods coordinate user interaction and inherit mathematical content from called WhiFuN routines.
+
+### Extended Capabilities
+- **Internal Calls:** No internal WhiFuN calls detected in this function body.
+- **External Dependencies:** No major external dependency pattern detected beyond MATLAB base language.
+- **Called By:** No internal caller detected by static scan; entry point, callback, script-local function, or externally invoked routine.
+
+### Version History
+- Source-static review snapshot date: `2026-05-16`.
+- Runtime execution of MATLAB code was not performed during documentation generation.
+
+### See Also
+No related internal cross-references were documented in the source-static review.

@@ -1,0 +1,154 @@
+# Anomalies and Recommendations
+
+## 3. Discovered Anomalies & Recommendations
+- `whifun_create_FN_Kmeans_WM_GM.m` calls `whifun_get_FN_kmeans` without the `num_replicates` argument. The current call shifts `over_write`, `d_flag`, `d`, `steps_`, and `tot_steps` into the wrong parameter positions. Recommendation: pass `2*num_replicates` before `over_write`, matching `whifun_create_FN_Kmeans.m`.
+- `scripts/matlab_scripts/basic_script_whifun_preproc_fsl_ants.m` calls `whifun_preproc_fsl_ants`, but no such function was found in the repository. Recommendation: add the function, rename the script to the implemented FSL pipeline, or remove the example.
+- `whifun_calculate_fd.m` computes `fd = sum(diff(trans),2) + sum(diff(rot*50),2)` without absolute values. Standard Power-style FD uses absolute displacement sums. Recommendation: use `sum(abs(diff(trans)),2)+50*sum(abs(diff(rot)),2)` unless signed displacement is intentional.
+- `fd_calc.m` computes an L2 norm of motion derivatives, while `whifun_calculate_fd.m` intends a summed displacement. Recommendation: document the intended FD convention and use one convention consistently in QC thresholds.
+- `whifun_get_best_k.m` sets `num_chunks = floor(N/size_chunk)`, so remainder voxels are excluded from the Dice stability calculation. Recommendation: include a final partial chunk or document that tail voxels are intentionally omitted.
+- `whifun_get_best_k.m` validates user-selected K with `if ~isnumeric(K)` after `str2double`, which does not catch `NaN`. Recommendation: use `if isnan(K) || K < 1 || K ~= round(K)`.
+- `functional_connectivity.m` does not preallocate `vec` and can leave it undefined if `win > T`; Fisher transformation can produce `Inf` at `r=1` or `r=-1`. Recommendation: validate `1 <= win <= T`, preallocate output, and clip correlations to `(-1+eps,1-eps)` before Fisher z when needed.
+- `whifun_seed_corr.m` z-scores time series and divides the dot product by `nt`; MATLAB `zscore` uses sample standard deviation by default, so exact Pearson correlation would divide by `nt-1`. Recommendation: use `corr` or divide consistently with the standardization convention.
+- `whifun_convert_coords.m` subtracts one from `coord_in` whenever `mat_py` is true, including the default `mni2vox` path. That correction is meaningful for voxel indexing, not MNI millimeter coordinates. Recommendation: apply indexing offsets only to voxel-coordinate inputs or split the option by conversion direction.
+- `whifun_regress_any.m` calls `regress(y,b_init)` without an intercept column, unlike `whifun_regress.m`, which appends `ones(nt,1)`. Recommendation: add an intercept or explicitly justify intercept-free confound regression.
+- `whifun_regress.m` documentation mentions `motion_reg`, but the function signature has no `motion_reg`; motion regressors are included only when `in_motion_txt_path` is nonempty. Recommendation: align documentation and signature semantics.
+- `whifun_create_avg_ts.m` initializes `vox_count_in_reg = zeros(length(level))`, producing a square matrix when a vector is intended. Recommendation: initialize as `zeros(length(level),1)`.
+- `whifun_create_avg_voxel_level_fc*.m` memory checks set `user.MaxPossibleArrayBytes = inf` on non-Windows systems because `memory` is unavailable. Recommendation: estimate memory needs directly and allow a configurable safety limit on all platforms.
+- `whifun_wmparc2wmgmcsf.m` is a script with a hard-coded absolute Windows path to an HCP development dataset. Recommendation: convert it to a parameterized function or move it to examples with clear non-production status.
+- `.asv` backup files are present in `whifun_functions/` and duplicate active algorithms. Recommendation: remove backup files from the distributed toolbox or exclude them from MATLAB path and documentation builds.
+- `whifun_preproc_fsl.m` has a no-regression branch that references `out_anat_mask_native_space_path`, which is not defined in that function. Recommendation: use the FSL-derived brain mask path already stored in `t1_brain_mask` or the subject structure.
+- Several functions choose the first match when multiple files are found (`whifun_multiple_file_found`, `whifun_check_data_func`, `whifun_check_data_anat`, `whifun_gunzip_preproc`). Recommendation: fail closed for ambiguous datasets unless the user explicitly chooses a file.
+- Several scientific routines rely on interactive dialogs (`questdlg`, `inputdlg`), including K selection and memory decisions. Recommendation: add noninteractive parameters for reproducible scripted pipelines.
+- No automated MATLAB test suite was found in the source inventory. Recommendation: add unit tests for vectorization/inversion, FD conventions, Fisher z edge behavior, K-means argument order, mask thresholding, and small synthetic FC pipelines.
+
+### Non-Source Asset Inventory
+- `Atlases/1mm/JHU_MNI_SS_WMPM_Type-III_to_MNI_brain.nii.gz`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Atlases/1mm/JHU_MNI_SS_WMPM_Type-II_to_MNI_brain.nii.gz`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Atlases/1mm/JHU_MNI_SS_WMPM_Type-I_to_MNI_brain.nii.gz`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Atlases/2mm/JHU-DTI-81_2mm.nii.gz`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Atlases/2mm/JHU_MNI_SS_WMPM_Type-III_to_MNI_brain_2mm.nii.gz`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Atlases/2mm/JHU_MNI_SS_WMPM_Type-II_to_MNI_brain_2mm.nii.gz`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Atlases/2mm/JHU_MNI_SS_WMPM_Type-I_to_MNI_brain_2mm.nii.gz`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Atlases/3mm/JHU-DTI-81_3mm.nii`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Atlases/3mm/JHU-DTI-81_3mm.nii.gz`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Atlases/3mm/JHU_MNI_SS_WMPM_Type-III_to_MNI_3mm.nii.gz`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Atlases/3mm/JHU_MNI_SS_WMPM_Type-II_to_MNI_brain_3mm.nii.gz`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Atlases/3mm/JHU_MNI_SS_WMPM_Type-I_to_MNI_brain_3mm.nii.gz`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Atlases/HarvardOxford-sub-maxprob-thr25-2mm_YCG.nii.gz`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `BrainNetViewer_20191031/AxialView_image.png`: Image asset or generated/reference figure; no callable function signature.
+- `BrainNetViewer_20191031/BrainNet.fig`: MATLAB binary data or figure asset; no callable function signature.
+- `BrainNetViewer_20191031/BrainNet_AAL_Label.mat`: MATLAB binary data or figure asset; no callable function signature.
+- `BrainNetViewer_20191031/BrainNet_App.mlapp`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/BrainNet_App_report.html`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `BrainNetViewer_20191031/BrainNet_Background.tif`: Image asset or generated/reference figure; no callable function signature.
+- `BrainNetViewer_20191031/BrainNet_Brodmann_Label.mat`: MATLAB binary data or figure asset; no callable function signature.
+- `BrainNetViewer_20191031/BrainNet_EdgCostumColor.fig`: MATLAB binary data or figure asset; no callable function signature.
+- `BrainNetViewer_20191031/BrainNet_LoadFiles.fig`: MATLAB binary data or figure asset; no callable function signature.
+- `BrainNetViewer_20191031/BrainNet_Manual.pdf`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `BrainNetViewer_20191031/BrainNet_MergeMesh.fig`: MATLAB binary data or figure asset; no callable function signature.
+- `BrainNetViewer_20191031/BrainNet_ModuleColor.fig`: MATLAB binary data or figure asset; no callable function signature.
+- `BrainNetViewer_20191031/BrainNet_Option.fig`: MATLAB binary data or figure asset; no callable function signature.
+- `BrainNetViewer_20191031/CoronalView_image.png`: Image asset or generated/reference figure; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/AAL90/Cover.mat`: MATLAB binary data or figure asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/AAL90/Edge_AAL90_Binary.edge`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/AAL90/Edge_AAL90_Weighted.edge`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/AAL90/Node_AAL116.node`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/AAL90/Node_AAL90.node`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/AAL90/Null_Mask.txt`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/AAL90/Reference.txt`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/AAL90/aal.nii`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/AAL90/boundary.txt`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/AAL90/boundary_hub.txt`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/AAL90/icbm_vertex_AAL_label.txt`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/Brodmann82/Edge_Brodmann82.edge`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/Brodmann82/Node_Brodmann82.node`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/Brodmann82/Reference.txt`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/Custom/Node_ROI.node`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/Desikan-Killiany68/Desikan-Killiany68.node`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/Desikan-Killiany68/Desikan-Killiany68.txt`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/Desikan-Killiany68/Reference.txt`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/Dos160/Edge_Dos160_Binary.edge`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/Dos160/Edge_Dos160_Weighted.edge`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/Dos160/Node_Dos160.node`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/Dos160/Reference.txt`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/Fair34/Edge_Fair34_Binary.edge`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/Fair34/Edge_Fair34_Weighted.edge`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/Fair34/Node_Fair34.node`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/Fair34/Reference.txt`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/HOA112/Edge_HOA112_Binary.edge`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/HOA112/Edge_HOA112_Weighted.edge`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/HOA112/Node_HOA112.node`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/HOA112/Reference.txt`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/LPBA40/Edge_LPBA40.edge`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/LPBA40/Node_LPBA40.node`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/LPBA40/Reference.txt`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/Power264/Node_Power264.node`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/Power264/Reference.txt`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `BrainNetViewer_20191031/Data/ExampleFiles/hi`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/SurfTemplate/BrainMesh_Cerebellum.nv`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/SurfTemplate/BrainMesh_Ch2.nv`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/SurfTemplate/BrainMesh_Ch2_smoothed.nv`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/SurfTemplate/BrainMesh_Ch2withCerebellum.nv`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/SurfTemplate/BrainMesh_ICBM152.nv`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/SurfTemplate/BrainMesh_ICBM152Left.nv`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/SurfTemplate/BrainMesh_ICBM152Left_smoothed.nv`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/SurfTemplate/BrainMesh_ICBM152Right.nv`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/SurfTemplate/BrainMesh_ICBM152Right_smoothed.nv`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/SurfTemplate/BrainMesh_ICBM152_smoothed.nv`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/SurfTemplate/BrainMesh_ICBM152_smoothed_tal.nv`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/Data/SurfTemplate/BrainMesh_ICBM152_tal.nv`: Asset; no callable function signature.
+- `BrainNetViewer_20191031/LoadFile_image.png`: Image asset or generated/reference figure; no callable function signature.
+- `BrainNetViewer_20191031/NV_t_ViewMatrix_image.png`: Image asset or generated/reference figure; no callable function signature.
+- `BrainNetViewer_20191031/PlotEdit_toggle_image.png`: Image asset or generated/reference figure; no callable function signature.
+- `BrainNetViewer_20191031/Presentation_image.png`: Image asset or generated/reference figure; no callable function signature.
+- `BrainNetViewer_20191031/SagittalView_image.png`: Image asset or generated/reference figure; no callable function signature.
+- `BrainNetViewer_20191031/SaveImage_image.png`: Image asset or generated/reference figure; no callable function signature.
+- `BrainNetViewer_20191031/Stop_image.png`: Image asset or generated/reference figure; no callable function signature.
+- `BrainNetViewer_20191031/UpdateLog.txt`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `BrainNetViewer_20191031/brainnet_parameters.mat`: MATLAB binary data or figure asset; no callable function signature.
+- `BrainNetViewer_20191031/brainnet_parameters1.mat`: MATLAB binary data or figure asset; no callable function signature.
+- `BrainNetViewer_20191031/brainnet_parameters2.mat`: MATLAB binary data or figure asset; no callable function signature.
+- `BrainNetViewer_20191031/brainnet_parameters2_draw_specific.mat`: MATLAB binary data or figure asset; no callable function signature.
+- `BrainNetViewer_20191031/uipushtool3_image.png`: Image asset or generated/reference figure; no callable function signature.
+- `BrainNetViewer_20191031/uitoggletool1_image.png`: Image asset or generated/reference figure; no callable function signature.
+- `BrainNetViewer_20191031/uitoggletool2_image.png`: Image asset or generated/reference figure; no callable function signature.
+- `BrainNetViewer_20191031/uitoggletool3_image.png`: Image asset or generated/reference figure; no callable function signature.
+- `BrainNetViewer_20191031/uitoggletool4_image.png`: Image asset or generated/reference figure; no callable function signature.
+- `BrainNetViewer_20191031/uitoggletool5_image.png`: Image asset or generated/reference figure; no callable function signature.
+- `Data/practice_NYU_abide/0050955/session_1/anat_1/anat_mask_bmprage.nii`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Data/practice_NYU_abide/0050955/session_1/anat_1/bmprage.nii`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Data/practice_NYU_abide/0050955/session_1/anat_1/mwc2mprage.nii`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Data/practice_NYU_abide/0050955/session_1/anat_1/mwc3mprage.nii`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Data/practice_NYU_abide/0050955/session_1/anat_1/wc1mprage.nii`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Data/practice_NYU_abide/0050955/session_1/anat_1/wc2mprage.nii`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Data/practice_NYU_abide/0050955/session_1/anat_1/wc3mprage.nii`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Data/practice_NYU_abide/0050955/session_1/anat_1/y_mprage.nii`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `README.md`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `Templates/MNI152_T1_2mm_brain.nii`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Templates/MNI152_T1_3mm.nii`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Templates/Original_corpus_callosum.nii`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `Templates/single_subj_T1.nii`: NIfTI atlas, template, or practice data volume; no callable function signature.
+- `WhiFuN Manual.pdf`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `icon.png`: Image asset or generated/reference figure; no callable function signature.
+- `icon_small.png`: Image asset or generated/reference figure; no callable function signature.
+- `icon_small_2.png`: Image asset or generated/reference figure; no callable function signature.
+- `license`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `parTicToc/license.txt`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `uigetfile_n_dir/license.txt`: Documentation, license, lookup table, or text metadata; no callable function signature.
+- `whifun_functions/private/actc.mat`: MATLAB binary data or figure asset; no callable function signature.
+- `whifun_functions/private/blackbdy.lut`: Asset; no callable function signature.
+- `whifun_functions/private/cardiac.lut`: Asset; no callable function signature.
+- `whifun_functions/private/flow.lut`: Asset; no callable function signature.
+- `whifun_functions/private/ge_color.lut`: Asset; no callable function signature.
+- `whifun_functions/private/gold.lut`: Asset; no callable function signature.
+- `whifun_functions/private/hotiron.lut`: Asset; no callable function signature.
+- `whifun_functions/private/nih.lut`: Asset; no callable function signature.
+- `whifun_functions/private/nih_fire.lut`: Asset; no callable function signature.
+- `whifun_functions/private/nih_ice.lut`: Asset; no callable function signature.
+- `whifun_functions/private/rainramp.lut`: Asset; no callable function signature.
+- `whifun_functions/private/spectrum.lut`: Asset; no callable function signature.
+- `whifun_functions/private/x_hot.lut`: Asset; no callable function signature.
+- `whifun_functions/private/x_rain.lut`: Asset; no callable function signature.
+- `whifun_functions/whifun_create_FN_Kmeans_WM_GM.asv`: Asset; no callable function signature.
+- `whifun_functions/whifun_create_avg_voxel_level_fc_WM_with_GM.asv`: Asset; no callable function signature.
+- `whifun_functions/whifun_create_avg_voxel_level_fc_multisession.asv`: Asset; no callable function signature.
